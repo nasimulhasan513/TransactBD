@@ -1,0 +1,13 @@
+{
+    "name": "express-app",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "node --watch dist/server.js",
+        "build": "tsup src/server.ts --format esm,cjs",
+        "start": "node dist/server.js"
+    },
+    "dependencies": {
+        "express": "^4.19.2"
+    }
+}
