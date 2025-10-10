@@ -1,9 +1,31 @@
 {
   "name": "@transactbd/core",
   "version": "0.1.0",
+  "author": "Nasimul Hasan Deep",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nasimulhasandeep/TransactBD.git"
+  },
+  "homepage": "https://github.com/nasimulhasandeep/TransactBD#readme",
+  "bugs": {
+    "url": "https://github.com/nasimulhasandeep/TransactBD/issues"
+  },
+  "keywords": [
+    "payment",
+    "sdk",
+    "bangladesh",
+    "bdt",
+    "gateway"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "import": "./dist/index.mjs",

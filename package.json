@@ -4,12 +4,13 @@
   "private": true,
   "description": "Unified Node.js/TypeScript SDK for Bangladesh payment gateways",
   "keywords": [],
-  "author": "",
+  "author": "Nasimul Hasan Deep",
   "license": "MIT",
   "workspaces": [
     "packages/*",
     "examples/*"
   ],
+  "packageManager": "pnpm@9.0.0",
   "scripts": {
     "build": "turbo run build",
     "typecheck": "turbo run typecheck",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.12",
+    "@types/express": "^5.0.3",
     "@types/node": "^24.7.1",
     "debug": "^4.3.7",
     "dotenv": "^16.4.5",

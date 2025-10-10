@@ -1,6 +1,7 @@
 {
     "name": "@transactbd/sslcommerz",
     "version": "0.1.0",
+    "author": "Nasimul Hasan Deep",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
     "types": "dist/index.d.ts",
@@ -14,6 +15,27 @@
     "files": [
         "dist"
     ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nasimulhasandeep/TransactBD.git"
+    },
+    "homepage": "https://github.com/nasimulhasandeep/TransactBD#readme",
+    "bugs": {
+        "url": "https://github.com/nasimulhasandeep/TransactBD/issues"
+    },
+    "keywords": [
+        "payment",
+        "sslcommerz",
+        "bangladesh",
+        "bdt",
+        "gateway"
+    ],
+    "engines": {
+        "node": ">=18"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
     "scripts": {
         "build": "tsup",
         "dev": "tsup --watch",

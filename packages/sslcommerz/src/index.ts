@@ -18,7 +18,7 @@ export class SslCommerzGateway implements PaymentGateway {
     const init = await this.client.initSession({
       total_amount: params.amount.value,
       currency: params.amount.currency,
-      tran_id: params.metadata?.tran_id || `ssl_${Date.now()}`,
+      tran_id: String(params.metadata?.tran_id ?? `ssl_${Date.now()}`),
       success_url: params.callbackUrls?.successUrl || "",
       fail_url: params.callbackUrls?.failUrl || "",
       cancel_url: params.callbackUrls?.cancelUrl || "",

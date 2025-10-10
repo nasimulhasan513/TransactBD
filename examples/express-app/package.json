@@ -8,6 +8,12 @@
         "start": "node dist/server.js"
     },
     "dependencies": {
-        "express": "^4.19.2"
+        "express": "^4.19.2",
+        "dotenv": "^16.4.5",
+        "@transactbd/core": "workspace:*",
+        "@transactbd/express": "workspace:*",
+        "@transactbd/bkash": "workspace:*",
+        "@transactbd/sslcommerz": "workspace:*",
+        "@transactbd/nagad": "workspace:*"
     }
 }

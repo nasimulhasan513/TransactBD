@@ -6,7 +6,4 @@
 	},
 	"include": ["src"]
 }
-{
-  "extends": "../../tsconfig.base.json",
-  "include": ["src"]
-}
+

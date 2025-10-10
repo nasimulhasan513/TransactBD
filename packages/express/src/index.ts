@@ -1,8 +1,8 @@
 import type { PaymentGateway } from "@transactbd/core";
-import type { RequestHandler } from "express";
+import type { RequestHandler, Request, Response } from "express";
 
 export function makeWebhookHandler(gateway: PaymentGateway): RequestHandler {
-  return async (req, res) => {
+  return async (req: Request, res: Response) => {
     try {
       const rawBody = (req as any).rawBody as Buffer | undefined;
       const payload = rawBody ?? JSON.stringify(req.body ?? {});
