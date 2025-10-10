@@ -40,4 +40,30 @@ describe("SslCommerzGateway", () => {
     const res = await gw.getPayment("T1");
     expect(res.status).toBe("succeeded");
   });
+
+  it("refund returns status object", async () => {
+    nock(baseUrl)
+      .post("/validator/api/merchantTransIDvalidationAPI.php")
+      .reply(200, { status: "REFUNDED", refund_ref_id: "R1" });
+    const res = await gw.refund("B1", 50);
+    expect(res.status).toBe("partial");
+  });
+
+  it("returns auth error on 401", async () => {
+    nock(baseUrl).post("/gwprocess/v4/api.php").reply(401, { error: "unauthorized" });
+    await expect(
+      gw.createPayment({ method: "sslcommerz", amount: { value: 100, currency: "BDT" } }),
+    ).rejects.toMatchObject({ name: "AuthError" });
+  });
+
+  it("retries on 500 for query", async () => {
+    nock(baseUrl)
+      .get(/validationserverAPI/)
+      .reply(500, { e: 1 });
+    nock(baseUrl)
+      .get(/validationserverAPI/)
+      .reply(200, { status: "VALID", tran_id: "T1" });
+    const res = await gw.getPayment("T1");
+    expect(res.status).toBe("succeeded");
+  });
 });
