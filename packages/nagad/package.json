@@ -1,6 +1,6 @@
 {
     "name": "@transactbd/nagad",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "Nasimul Hasan Deep",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",

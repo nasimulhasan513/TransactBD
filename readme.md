@@ -1,6 +1,6 @@
 ## TransactBD
 
-Unified Node.js/TypeScript SDK for Bangladesh payment gateways: bKash, SSLCommerz, and Nagad. Monorepo with core contracts/utilities, provider adapters, an Express helper, and an example server.
+Unified TypeScript SDK for Bangladesh payment gateways: bKash, SSLCommerz, and Nagad. This monorepo includes core contracts/utilities, provider adapters, an Express helper, and a runnable example server.
 
 ### Packages
 
@@ -40,8 +40,67 @@ Environment variables expected (fill sandbox creds):
 - Secrets are never logged; errors redact sensitive data.
 - Inputs validated via zod; idempotency keys normalized.
 
+## Quick start
+
+Prereqs: Node 18/20/22, pnpm.
+
+1. Install and build
+
+```
+pnpm i
+pnpm -w build
+```
+
+2. Run tests
+
+```
+pnpm -w test
+```
+
+3. Start the example server
+
+```
+cp examples/express-app/.env.example examples/express-app/.env
+pnpm --filter express-app build && pnpm --filter express-app start
+```
+
+### Usage snippets
+
+Core HTTP
+
+```ts
+import { http } from "@transactbd/core";
+const data = await http("/ping", { method: "GET" }, { baseUrl: "https://api" });
+```
+
+Create an SSLCommerz payment
+
+```ts
+import { SslCommerzGateway } from "@transactbd/sslcommerz";
+const ssl = new SslCommerzGateway({ baseUrl, storeId, storePassword });
+const intent = await ssl.createPayment({
+  method: "sslcommerz",
+  amount: { value: 100, currency: "BDT" },
+});
+```
+
+Express webhook
+
+```ts
+import express from "express";
+import { makeWebhookHandler } from "@transactbd/express";
+app.use(express.json({ verify: (req, _res, buf) => ((req as any).rawBody = buf) }));
+app.post("/webhooks/sslcommerz", makeWebhookHandler(ssl));
+```
+
+### Links to package docs
+
+- Core: `packages/core/README.md`
+- SSLCommerz: `packages/sslcommerz/README.md`
+- bKash: `packages/bkash/README.md`
+- Nagad: `packages/nagad/README.md`
+- Express: `packages/express/README.md`
+
 ### Open source and contributions
 
-TransactBD is an open-source project focused on Bangladesh payment gateways to make integrations easier and portable across providers.
-If you want to improve reliability, coverage, or docs, please open a PR and contribute
-— contribution areas are welcome: adapters, tests/mocks, docs, DX, and examples.
+TransactBD is open-source to make Bangladesh gateway integrations easier and portable across providers. PRs welcome across adapters, tests/mocks, docs, DX, and examples. Author: Nasimul Hasan Deep. License: MIT.
