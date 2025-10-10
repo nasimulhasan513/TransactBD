@@ -42,4 +42,6 @@ Environment variables expected (fill sandbox creds):
 
 ### Open source and contributions
 
-TransactBD is an open-source project focused on Bangladesh payment gateways to make integrations easier and portable across providers. If you want to improve reliability, coverage, or docs, please open a PR and contribute — contribution areas are welcome: adapters, tests/mocks, docs, DX, and examples.
+TransactBD is an open-source project focused on Bangladesh payment gateways to make integrations easier and portable across providers.
+If you want to improve reliability, coverage, or docs, please open a PR and contribute
+— contribution areas are welcome: adapters, tests/mocks, docs, DX, and examples.
