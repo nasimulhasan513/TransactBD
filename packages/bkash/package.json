@@ -1,0 +1,16 @@
+{
+  "name": "@transactbd/bkash",
+  "version": "0.1.0",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs"
+  },
+  "dependencies": {
+    "@transactbd/core": "workspace:*"
+  }
+}

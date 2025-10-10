@@ -1,0 +1,39 @@
+{
+  "name": "transactbd",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unified Node.js/TypeScript SDK for Bangladesh payment gateways",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "coverage": "turbo run coverage"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.12",
+    "@types/node": "^24.7.1",
+    "debug": "^4.3.7",
+    "dotenv": "^16.4.5",
+    "eslint": "^9.37.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "nock": "^14.0.4",
+    "prettier": "^3.6.2",
+    "supertest": "^7.0.0",
+    "tsup": "^8.5.0",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3",
+    "undici": "^6.19.8",
+    "vitest": "^2.1.4",
+    "zod": "^3.23.8"
+  }
+}
