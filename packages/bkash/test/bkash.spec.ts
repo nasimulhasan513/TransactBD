@@ -37,4 +37,16 @@ describe("BkashGateway", () => {
     const q = await gw.getPayment("trx");
     expect(q.status).toBe("succeeded");
   });
+
+  it("retries on 500 during query", async () => {
+    nock(baseUrl).post("/token/grant").reply(200, { id_token: "jwt", expires_in: 300 });
+    nock(baseUrl)
+      .get(/payment\/status.*/)
+      .reply(500, { err: 1 });
+    nock(baseUrl)
+      .get(/payment\/status.*/)
+      .reply(200, { status: "COMPLETED", amount: "50" });
+    const q = await gw.getPayment("trx2");
+    expect(q.status).toBe("succeeded");
+  });
 });
