@@ -17,11 +17,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nasimulhasandeep/TransactBD.git"
+    "url": "git+https://github.com/nasimulhasan513/TransactBD.git"
   },
-  "homepage": "https://github.com/nasimulhasandeep/TransactBD#readme",
+  "homepage": "https://github.com/nasimulhasan513/TransactBD#readme",
   "bugs": {
-    "url": "https://github.com/nasimulhasandeep/TransactBD/issues"
+    "url": "https://github.com/nasimulhasan513/TransactBD/issues"
   },
   "keywords": [
     "payment",
