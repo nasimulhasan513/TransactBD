@@ -143,6 +143,20 @@ dist
 # macOS
 .DS_Store
 
+# pnpm
+.pnpm-store/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Package manager lock files (keep pnpm-lock.yaml only)
+yarn.lock
+package-lock.json
+
 # Vite files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

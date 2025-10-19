@@ -1,6 +1,7 @@
 import type { CreateParams, PaymentGateway, PaymentIntent } from "@transactbd/core";
 import { normalizeIdempotencyKey } from "@transactbd/core";
-import { SslCommerzClient, type SslCommerzConfig } from "./client";
+
+import { SslCommerzClient, type SslCommerzConfig, type InitResponse, type QueryResponse } from "./client";
 import { toPaymentIntent } from "./mapper";
 import { verifyCallback } from "./webhook";
 
@@ -26,12 +27,12 @@ export class SslCommerzGateway implements PaymentGateway {
       cus_email: params.customer?.email || "",
       cus_phone: params.customer?.phone || "",
     });
-    return toPaymentIntent(init as any);
+    return toPaymentIntent(init as InitResponse);
   }
 
   async getPayment(providerRef: string): Promise<PaymentIntent> {
     const q = await this.client.query({ tran_id: providerRef });
-    return toPaymentIntent(q as any);
+    return toPaymentIntent(q as QueryResponse);
   }
 
   async refund(providerRef: string, amount?: number): Promise<{ status: "refunded" | "partial" }> {
@@ -41,8 +42,8 @@ export class SslCommerzGateway implements PaymentGateway {
 
   async verifyWebhook(
     payload: string | Buffer,
-    headers: Record<string, string>,
-  ): Promise<{ ok: boolean; event?: any }> {
-    return verifyCallback(payload, headers);
+    _headers: Record<string, string>,
+  ): Promise<{ ok: boolean; event?: unknown }> {
+    return verifyCallback(payload, _headers);
   }
 }
