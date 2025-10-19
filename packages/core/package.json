@@ -1,6 +1,6 @@
 {
   "name": "@transactbd/core",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Nasimul Hasan Deep",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
